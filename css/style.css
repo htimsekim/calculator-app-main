@@ -6,6 +6,12 @@ html, body {
 
     font-size: 32px;
     font-family: 'Spartan', sans-serif;
+
+    /* make the text unselectable because it's annoying to select button text */
+    -webkit-user-select: none;  /* Chrome all / Safari all */
+    -moz-user-select: none;     /* Firefox all */
+    -ms-user-select: none;      /* IE 10+ */
+    user-select: none;          /* Likely future */   
 }
 
 .defaultTheme {
@@ -123,6 +129,7 @@ body {
 
 .themeSelector {
     grid-area: themeSelector;
+    cursor: pointer;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
@@ -222,6 +229,12 @@ body {
     color: var(--screen-text);
     background: var(--screen-background);
     border-radius: .25rem;
+
+    /* ok this text can be selectable */
+    -webkit-user-select: all;  /* Chrome all / Safari all */
+    -moz-user-select: all;     /* Firefox all */
+    -ms-user-select: all;      /* IE 10+ */
+    user-select: all;          /* Likely future */   
 }
 
 .buttonContainer {
@@ -236,6 +249,7 @@ body {
 }
 
 .button {
+    cursor: pointer;
     display: grid;
     place-items: center;
     padding-top: .25rem;
