@@ -103,18 +103,18 @@ document.querySelector(".buttonEqual").addEventListener("click", event => {
             lastPressedFunction = "=";
             break;
         case "+":
-            displayTotal = String(firstNumber + secondNumber);
+            // idk why but i was getting weird stuff like 2.1 * 3 = 6.30000000000000001 so get rounded i guess
+            displayTotal = String(Math.round(1000 * (firstNumber + secondNumber)) / 1000);
             updateScreen();
             lastPressedFunction = "=";
             break;
         case "-":
-            displayTotal = String(firstNumber - secondNumber);
+            displayTotal = String(Math.round(1000 * (firstNumber - secondNumber)) / 1000);
             updateScreen();
             lastPressedFunction = "=";
             break;
         case "x":
-            // idk why but i was getting weird stuff like 2.1 * 3 = 6.30000000000000001 so get rounded i guess
-            displayTotal = String(Math.round(firstNumber * secondNumber * 1000) / 1000);
+            displayTotal = String(Math.round(1000 * (firstNumber * secondNumber)) / 1000);
             updateScreen();
             lastPressedFunction = "=";
             break;
