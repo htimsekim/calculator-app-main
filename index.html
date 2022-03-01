@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="defaultTheme">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
@@ -8,19 +8,56 @@
   
   <title>Frontend Mentor | Calculator app</title>
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
+  <!-- external stylesheet -->
+  <link rel="stylesheet" href="/css/style.css">
+
+  <!-- google fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Spartan:wght@700&display=swap" rel="stylesheet"> 
+
 </head>
 <body>
-
-
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
+  <div class="defaultTheme calculatorContainer">
+    <div class="calcLabel">
+      <span>calc</span>
+    </div>
+    <div class="themeSelector">
+      <div class="themeNumbers">
+        <span>1</span>
+        <span>2</span>
+        <span>3</span>
+      </div>
+      <span class="themeLabel">THEME</span>
+      <div class="themeSlider">
+        <div class="themeDot"></div>
+        <div class="themeSliderLeft"></div>
+        <div class="themeSliderCenter"></div>
+        <div class="themeSliderRight"></div>
+      </div>      
+    </div>
+    <div class="calcScreen">399,981</div>
+    <div class="buttonContainer">
+      <div class="button button7 buttonWhite">7</div>
+      <div class="button button8 buttonWhite">8</div>
+      <div class="button button9 buttonWhite">9</div>
+      <div class="button buttonDel buttonBlue">DEL</div>
+      <div class="button button4 buttonWhite">4</div>
+      <div class="button button5 buttonWhite">5</div>
+      <div class="button button6 buttonWhite">6</div>
+      <div class="button buttonPlus buttonWhite">+</div>
+      <div class="button button1 buttonWhite">1</div>
+      <div class="button button2 buttonWhite">2</div>
+      <div class="button button3 buttonWhite">3</div>
+      <div class="button buttonMinus buttonWhite">-</div>
+      <div class="button buttonDot buttonWhite">.</div>
+      <div class="button buttonZero buttonWhite">0</div>
+      <div class="button buttonDiv buttonWhite">/</div>
+      <div class="button buttonMult buttonWhite">x</div>
+      <div class="button buttonReset buttonBlue">RESET</div>
+      <div class="button buttonEqual buttonRed">=</div>
+    </div>
   </div>
+  <script src="/js/main.js"></script>
 </body>
 </html>

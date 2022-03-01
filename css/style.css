@@ -1,0 +1,272 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+
+    font-size: 32px;
+    font-family: 'Spartan', sans-serif;
+}
+
+.defaultTheme {
+    /* backgrounds */
+    --main-background: hsl(222, 26%, 31%);
+    --keypad-background: hsl(223, 31%, 20%);
+    --screen-background: hsl(224, 36%, 15%);
+
+    /* keys */
+    --blue-key: hsl(225, 21%, 49%);
+    --blue-key-shadow: hsl(224, 28%, 35%);
+
+    --red-key: hsl(6, 63%, 50%);
+    --red-key-shadow: hsl(6, 70%, 34%);
+
+    --gray-key: hsl(30, 25%, 89%);
+    --gray-key-shadow: hsl(28, 16%, 65%);
+
+    /* text */
+    --dark-text: hsl(221, 14%, 31%);
+    --screen-text: hsla(360, 100%, 100%, 1);
+    --button-text: hsl(60, 10%, 19%);
+    --white-text: hsla(360, 100%, 100%, 1);
+    --equal-text: var(--white-text);
+}
+
+.whiteTheme {
+    /* backgrounds */
+    --main-background: hsl(0, 0%, 90%);
+    --keypad-background: hsl(0, 5%, 81%);
+    --screen-background: hsl(0, 0%, 93%);
+
+    /* keys */
+    --blue-key: hsl(185, 42%, 37%);
+    --blue-key-shadow: hsl(185, 58%, 25%);
+
+    --red-key: hsl(25, 98%, 40%);
+    --red-key-shadow: hsl(25, 99%, 27%);
+
+    --gray-key: hsl(45, 7%, 89%);
+    --gray-key-shadow: hsl(35, 11%, 61%);
+
+    /* text */
+    --screen-text: hsl(60, 10%, 19%);
+    --button-text: hsl(60, 10%, 19%);
+    --white-text: hsla(360, 100%, 100%, 1);
+    --equal-text: var(--white-text);
+}
+
+.purpleTheme {
+    /* backgrounds */
+    --main-background: hsl(268, 75%, 9%);
+    --keypad-background: hsl(268, 71%, 12%);
+    --screen-background: hsl(268, 71%, 12%);
+
+    /* keys */
+    --blue-key: hsl(281, 89%, 26%);
+    --blue-key-shadow: hsl(285, 91%, 52%);
+
+    --red-key: hsl(176, 100%, 44%);
+    --red-key-shadow: hsl(177, 92%, 70%);
+
+    --gray-key: hsl(268, 47%, 21%);
+    --gray-key-shadow: hsl(290, 70%, 36%);
+
+    /* text */
+    --screen-text: hsl(52, 100%, 62%);
+    --button-text: hsl(52, 100%, 62%);
+    --white-text: hsla(360, 100%, 100%, 1);
+    --equal-text: hsl(198, 20%, 13%);
+}
+
+body {
+    display: grid;
+    place-items: center;
+    background: var(--main-background);
+    margin: auto;
+}
+
+.calculatorContainer {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: .5em;
+    min-width: 16em;
+    /* max-width: 45vw; */
+    min-height: 70vh;
+    grid-template-areas: 
+        "label label themeSelector themeSelector"
+        "calcScreen calcScreen calcScreen calcScreen"
+        "buttonContainer buttonContainer buttonContainer buttonContainer"
+        "buttonContainer buttonContainer buttonContainer buttonContainer"
+        "buttonContainer buttonContainer buttonContainer buttonContainer"
+        "buttonContainer buttonContainer buttonContainer buttonContainer"
+        "buttonContainer buttonContainer buttonContainer buttonContainer";
+}
+
+.calcLabel, .themeSelector {
+    color: var(--screen-text);
+}
+
+.calcLabel {
+    grid-area: label;
+    display: grid;
+    font-size: 1rem;
+    place-content: start start;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-areas:
+        "."
+        "calcText";
+}
+
+.calcLabel > span {
+    grid-area: calcText;
+}
+
+.themeSelector {
+    grid-area: themeSelector;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-areas:
+        ". themeNumbers"
+        "themeLabel themeSlider";
+}
+
+.themeLabel {
+    grid-area: themeLabel;
+    display: grid;
+    place-self: center end;
+    padding-right: 1rem;
+    font-size: .5rem;
+}
+
+.themeNumbers {
+    display: grid;
+    grid-area: themeNumbers;
+    grid-template-columns: repeat(3, 1fr);
+    place-content: end center;
+    margin-bottom: .25rem;
+}
+
+.themeNumbers > span {
+    font-size: .5rem;
+    place-self: center;
+}
+
+.themeSlider {
+    grid-area: themeSlider;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: .5fr;
+}
+
+.themeDot {
+    grid-area: 1 / 1 / 1 / 1;
+    height: 70%;
+    width: 70%;
+    place-self: center;
+    background-color: var(--red-key);
+    border-radius: 50%;
+    z-index: 999;
+}
+
+.themeDot::before { /* makes these containers square */
+    content: "";
+    padding-bottom: 100%;
+    display: block;
+    
+}
+
+.themeSliderLeft {
+    grid-area: 1 / 1 / 1 / 1;
+    background: var(--keypad-background);
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
+}
+
+.themeSliderLeft::before { /* makes these containers square */
+    content: "";
+    padding-bottom: 100%;
+    display: block;
+}
+
+.themeSliderCenter {
+    grid-area: 1 / 2 / 1 / 2;
+    background: var(--keypad-background);
+}
+
+.themeSliderCenter::before { /* makes these containers square */
+    content: "";
+    padding-bottom: 100%;
+    display: block;
+}
+
+.themeSliderRight {
+    grid-area: 1 / 3 / 1 / 3;
+    background: var(--keypad-background);
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+}
+
+.themeSliderRight::before { /* makes these containers square */
+    content: "";
+    padding-bottom: 100%;
+    display: block;
+}
+
+.calcScreen {
+    display: grid;
+    place-items: center end;
+    grid-area: calcScreen;
+    padding: .5rem;
+    font-size: 1.25rem;
+    color: var(--screen-text);
+    background: var(--screen-background);
+    border-radius: .25rem;
+}
+
+.buttonContainer {
+    display: grid;
+    grid-area: buttonContainer;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: .75em;
+    padding: 1em;
+    background: var(--keypad-background);
+    border-radius: .25rem;
+}
+
+.button {
+    display: grid;
+    place-items: center;
+    background: var(--keypad-background);
+    border-radius: .25rem;
+}
+
+.buttonWhite {
+    color: var(--dark-text);
+    font-size: 1rem;
+    background: var(--gray-key);
+    box-shadow: 0 .1rem var(--gray-key-shadow);
+}
+
+.buttonBlue {
+    color: var(--white-text);
+    font-size: .65rem;
+    background: var(--blue-key);
+    box-shadow: 0 .1rem var(--blue-key-shadow);
+}
+
+.buttonRed {
+    color: var(--equal-text);
+    font-size: .75rem;
+    background: var(--red-key);
+    box-shadow: 0 .1rem var(--red-key-shadow);
+}
+
+.buttonReset {
+    grid-column: 1 / span 2;
+}
+
+.buttonEqual {
+    grid-column: 3 / span 2;
+}
