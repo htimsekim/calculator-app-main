@@ -86,18 +86,17 @@ html, body {
 
 body {
     display: grid;
-    place-items: center;
+    place-content: center;
+
     background: var(--main-background);
-    margin: auto;
 }
 
 .calculatorContainer {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: .5em;
-    min-width: 16em;
-    /* max-width: 45vw; */
-    min-height: 70vh;
+    min-width: 15em;
+    aspect-ratio: 1.5 / 2;
     grid-template-areas: 
         "label label themeSelector themeSelector"
         "calcScreen calcScreen calcScreen calcScreen"
@@ -284,4 +283,20 @@ body {
 
 .buttonEqual {
     grid-column: 3 / span 2;
+}
+
+@media (max-width: 600px) {
+    html, body {
+        font-size: 24px;
+    }
+
+    body {
+        place-content: none;
+    };
+
+    .calculatorContainer {
+        width: 80vw;
+        
+        grid-template-columns: repeat(4, 2.25rem);
+    }
 }
