@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="defaultTheme">
+<html lang="en" class="defaultTheme" id="themeRoot">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
@@ -18,11 +18,11 @@
 
 </head>
 <body>
-  <div class="defaultTheme calculatorContainer">
+  <div class="calculatorContainer">
     <div class="calcLabel">
       <span>calc</span>
     </div>
-    <div class="themeSelector">
+    <div class="themeSelector" id="themeButton">
       <div class="themeNumbers">
         <span>1</span>
         <span>2</span>
@@ -30,7 +30,7 @@
       </div>
       <span class="themeLabel">THEME</span>
       <div class="themeSlider">
-        <div class="themeDot"></div>
+        <div id="themeDot"></div>
         <div class="themeSliderLeft"></div>
         <div class="themeSliderCenter"></div>
         <div class="themeSliderRight"></div>
