@@ -52,6 +52,16 @@ document.querySelectorAll(".buttonNumber").forEach(item => {
     
 })
 
+document.querySelectorAll(".buttonDot").forEach(item => {
+    item.addEventListener("click", event => {
+        if (!displayTotal.includes(".")) {
+            displayTotal += ".";
+            updateScreen();
+        }
+    }
+    )
+})
+
 document.querySelector(".buttonReset").addEventListener("click", event => {
     resetScreen();
 })
@@ -73,7 +83,7 @@ function addSymbolToScreen(operation) {
         flashScreen();
         functionPressed = true;
         lastPressedFunction = operation;
-        displayTotal += operation;
+        displayTotal = "";
         updateScreen();
     }    
 }
@@ -95,8 +105,9 @@ document.querySelector(".buttonDiv").addEventListener("click", event => {
 })
 
 document.querySelector(".buttonEqual").addEventListener("click", event => {
-    numberSplitter = displayTotal.split(lastPressedFunction);
-    secondNumber = parseFloat(numberSplitter[1]);
+    // numberSplitter = displayTotal.split(lastPressedFunction);
+    // secondNumber = parseFloat(numberSplitter[1]);
+    secondNumber = parseFloat(displayTotal);
     switch (lastPressedFunction) {
         case "":
             updateScreen();

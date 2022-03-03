@@ -95,7 +95,7 @@ body {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: .5em;
-    min-width: 15em;
+    /* min-width: 15em; */
     aspect-ratio: 1.5 / 2;
     grid-template-areas: 
         "label label themeSelector themeSelector"
@@ -228,6 +228,7 @@ body {
     color: var(--screen-text);
     background: var(--screen-background);
     border-radius: .25rem;
+    min-height: 1.5ch;
 
     /* ok this text can be selectable */
     -webkit-user-select: all;  /* Chrome all / Safari all */
@@ -295,7 +296,7 @@ body {
     };
 
     .calculatorContainer {
-        width: 80vw;
+        /* width: 80vw; */
         
         grid-template-columns: repeat(4, 2.25rem);
     }
